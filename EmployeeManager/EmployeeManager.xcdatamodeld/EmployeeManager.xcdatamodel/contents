@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Employee" representedClassName="Employee" syncable="YES">
+        <attribute name="employeeEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employeeImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="employeeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employeePassword" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employeeSalary" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="employeeUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserInfo" inverseName="employee" inverseEntity="UserInfo" syncable="YES"/>
+        <relationship name="employer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employer" inverseName="employee" inverseEntity="Employer" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="employee" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Employer" representedClassName="Employer" syncable="YES">
+        <attribute name="employerEmial" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employerImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="employerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employerPassword" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employerSalary" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="employee" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="employer" inverseEntity="Employee" syncable="YES"/>
+        <relationship name="employerUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserInfo" inverseName="employer" inverseEntity="UserInfo" syncable="YES"/>
+        <relationship name="project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Project" inverseName="employer" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Project" representedClassName="Project" syncable="YES">
+        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="projetDate" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="employee" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="project" inverseEntity="Employee" syncable="YES"/>
+        <relationship name="employer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employer" inverseName="project" inverseEntity="Employer" syncable="YES"/>
+    </entity>
+    <entity name="UserInfo" representedClassName="UserInfo" syncable="YES">
+        <attribute name="loginStatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="loginType" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="employee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employee" inverseName="employeeUser" inverseEntity="Employee" syncable="YES"/>
+        <relationship name="employer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employer" inverseName="employerUser" inverseEntity="Employer" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Employee" positionX="-54" positionY="0" width="128" height="165"/>
+        <element name="Employer" positionX="-305.4375" positionY="-42.28125" width="128" height="165"/>
+        <element name="Project" positionX="-162" positionY="45" width="128" height="105"/>
+        <element name="UserInfo" positionX="-135" positionY="90" width="128" height="105"/>
+    </elements>
+</model>

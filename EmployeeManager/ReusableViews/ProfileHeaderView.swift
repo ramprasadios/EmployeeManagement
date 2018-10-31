@@ -10,4 +10,9 @@ import UIKit
 
 class ProfileHeaderView: UIView {
 
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userRoleLabel: UILabel!
+    @IBOutlet weak var userEmailLabel: UILabel!
+    @IBOutlet weak var userTypeLabel: UILabel!
+    
 }

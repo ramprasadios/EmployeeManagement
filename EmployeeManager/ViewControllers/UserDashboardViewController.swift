@@ -45,6 +45,13 @@ extension UserDashboardViewController {
         
         guard let headerView = Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)?.first as? ProfileHeaderView else { return }
         self.employeeTableView.tableHeaderView = headerView
+        
+        headerView.userNameLabel.text = self.userViewModel.fullName
+        headerView.userRoleLabel.text = self.userViewModel.userRole
+        headerView.userEmailLabel.text = self.userViewModel.userEmial
+        headerView.userTypeLabel.text = self.userViewModel.userType
+        
+        self.loginUserTypeLabel.text = "Logged in as " + self.userViewModel.userType
     }
 }
 
@@ -66,7 +73,7 @@ extension UserDashboardViewController: UITableViewDataSource {
 extension UserDashboardViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        return 100.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -6,6 +6,6 @@ target 'EmployeeManager' do
   use_frameworks!
 
   # Pods for EmployeeManager
-  pod 'IQKeyboardManagerSwift'
+  pod 'IQKeyboardManagerSwift', '>= 6.0.4'
 
 end

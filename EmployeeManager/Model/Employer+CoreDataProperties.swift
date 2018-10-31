@@ -2,7 +2,7 @@
 //  Employer+CoreDataProperties.swift
 //  EmployeeManager
 //
-//  Created by Ramprasad A on 30/10/18.
+//  Created by Ramprasad A on 31/10/18.
 //  Copyright © 2018 Ramprasad A. All rights reserved.
 //
 //
@@ -17,14 +17,15 @@ extension Employer {
         return NSFetchRequest<Employer>(entityName: "Employer")
     }
 
-    @NSManaged public var employerSalary: Double
-    @NSManaged public var employerPassword: String?
-    @NSManaged public var employerName: String?
-    @NSManaged public var employerImage: NSData?
     @NSManaged public var employerEmial: String?
+    @NSManaged public var employerImage: NSData?
+    @NSManaged public var employerName: String?
+    @NSManaged public var employerPassword: String?
+    @NSManaged public var employerSalary: Double
+    @NSManaged public var employerGender: String?
     @NSManaged public var employee: NSSet?
-    @NSManaged public var project: NSSet?
     @NSManaged public var employerUser: UserInfo?
+    @NSManaged public var project: NSSet?
 
 }
 

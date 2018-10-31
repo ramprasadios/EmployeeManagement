@@ -14,6 +14,7 @@ class RegistrationViewModel {
     var emailId: String?
     var password: String?
     var employeeType: LoginViewModel.LoginType = .employer
+    var gender: Gender = .male
     
     func validation() -> (ErrorManager.ErrorTypes, Bool) {
 
@@ -32,6 +33,7 @@ class RegistrationViewModel {
             employee.employeeName = self.name
             employee.employeeEmail = self.emailId
             employee.employeePassword = self.password
+            employee.employeeGender = self.gender.rawValue
             
             CoreDataManager.default.saveContext()
             
@@ -41,6 +43,7 @@ class RegistrationViewModel {
             employer.employerName = self.name
             employer.employerEmial = self.emailId
             employer.employerPassword = self.password
+            employer.employerGender = self.gender.rawValue
             
             CoreDataManager.default.saveContext()
         }

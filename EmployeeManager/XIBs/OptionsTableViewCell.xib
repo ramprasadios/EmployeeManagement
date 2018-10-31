@@ -26,13 +26,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jii-YF-af2">
-                        <rect key="frame" x="72" y="31.5" width="233" height="24"/>
+                        <rect key="frame" x="72" y="24.5" width="233" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XtU-yh-UgD">
-                        <rect key="frame" x="72" y="63" width="233" height="17"/>
+                        <rect key="frame" x="72" y="56" width="233" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -41,12 +41,12 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="jii-YF-af2" firstAttribute="leading" secondItem="HNP-sk-oj6" secondAttribute="trailing" constant="16" id="015-2X-6zg"/>
-                    <constraint firstItem="jii-YF-af2" firstAttribute="top" secondItem="HNP-sk-oj6" secondAttribute="top" id="7qr-ij-uEA"/>
                     <constraint firstItem="HNP-sk-oj6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="8K5-UR-yAI"/>
                     <constraint firstItem="HNP-sk-oj6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AQO-Ft-mPU"/>
                     <constraint firstItem="XtU-yh-UgD" firstAttribute="leading" secondItem="jii-YF-af2" secondAttribute="leading" id="LdQ-hF-kBs"/>
                     <constraint firstAttribute="trailing" secondItem="jii-YF-af2" secondAttribute="trailing" constant="8" id="P4f-ZR-wpa"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XtU-yh-UgD" secondAttribute="bottom" constant="8" id="RPw-23-6fV"/>
+                    <constraint firstItem="jii-YF-af2" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-15" id="Z93-JI-PXR"/>
                     <constraint firstItem="XtU-yh-UgD" firstAttribute="top" secondItem="jii-YF-af2" secondAttribute="bottom" constant="7.5" id="ftL-8W-Amg"/>
                     <constraint firstItem="XtU-yh-UgD" firstAttribute="trailing" secondItem="jii-YF-af2" secondAttribute="trailing" id="wNw-FB-zpk"/>
                 </constraints>

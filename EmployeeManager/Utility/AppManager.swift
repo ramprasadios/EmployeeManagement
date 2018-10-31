@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import IQKeyboardManagerSwift
 
 class AppManager: NSObject {
     
@@ -19,6 +20,7 @@ class AppManager: NSObject {
     class func initialSetup() {
         printCoreDataURL()
         checkLoginNavigation()
+        configureDependency()
     }
     
     class func checkLoginNavigation() {
@@ -27,6 +29,10 @@ class AppManager: NSObject {
         } else {
             changeRootWith(rootType: .login)
         }
+    }
+    
+    class func configureDependency() {
+        IQKeyboardManager.shared.enable = true
     }
     
     class func printCoreDataURL() {

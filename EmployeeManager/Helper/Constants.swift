@@ -12,6 +12,11 @@ enum RootType {
     case login, userHome
 }
 
+enum Gender: String {
+    case male = "Male"
+    case female = "Female"
+}
+
 //Projects active in the company
 enum Projects: String {
     case iot = "IOT Management"

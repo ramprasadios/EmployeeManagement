@@ -11,6 +11,7 @@ import UIKit
 class RegisterViewController: UIViewController {
     
     @IBOutlet weak var employeeTypeTextField: UITextField!
+    @IBOutlet var genderSelection: [UIButton]!
     
     let registerViewModel = RegistrationViewModel()
 
@@ -31,6 +32,23 @@ class RegisterViewController: UIViewController {
     
     @IBAction func dismissTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func genderSelectionTapped(_ sender: Any) {
+        if let tappedButton = sender as? UIButton {
+            for button in self.genderSelection {
+                if button.tag == tappedButton.tag {
+                    button.backgroundColor = UIColor.blue
+                } else {
+                    button.backgroundColor = UIColor.white
+                }
+            }
+            if tappedButton.tag == self.genderSelection.first?.tag {
+                self.registerViewModel.gender = Gender.male
+            } else {
+                self.registerViewModel.gender = Gender.female
+            }
+        }
     }
 }
 

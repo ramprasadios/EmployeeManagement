@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Employee" representedClassName="Employee" syncable="YES">
         <attribute name="employeeEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employeeGender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="employeeImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="employeeName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="employeePassword" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,6 +13,7 @@
     </entity>
     <entity name="Employer" representedClassName="Employer" syncable="YES">
         <attribute name="employerEmial" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="employerGender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="employerImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="employerName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="employerPassword" optional="YES" attributeType="String" syncable="YES"/>
@@ -33,8 +35,8 @@
         <relationship name="employer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employer" inverseName="employerUser" inverseEntity="Employer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Employee" positionX="-54" positionY="0" width="128" height="165"/>
-        <element name="Employer" positionX="-305.4375" positionY="-42.28125" width="128" height="165"/>
+        <element name="Employee" positionX="-54" positionY="0" width="128" height="180"/>
+        <element name="Employer" positionX="-305.4375" positionY="-42.28125" width="128" height="180"/>
         <element name="Project" positionX="-162" positionY="45" width="128" height="105"/>
         <element name="UserInfo" positionX="-135" positionY="90" width="128" height="105"/>
     </elements>

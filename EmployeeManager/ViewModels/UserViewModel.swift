@@ -41,6 +41,23 @@ class UserViewModel {
         }
     }
     
+    var userName: String!
+    var userRole: String!
+    var userEmial: String!
+    var userType: String!
+    var gender: Gender!
+    
+    var fullName: String {
+        switch self.gender {
+        case .male?:
+           return "Mr. " + self.userName
+        case .female?:
+           return "Ms. " + self.userName
+        case .none:
+            return ""
+        }
+    }
+    
     var loggedInUserType: LoginViewModel.LoginType? {
         guard let user = UserInfo.getUser() else { return nil }
         guard let loginType = user.loginType else { return nil }
@@ -57,6 +74,10 @@ class UserViewModel {
             return UserViewModel.EmployerOptions.count()
         }
         
+    }
+    
+    init() {
+        self.getInitialValue()
     }
     
     func optionValue(atIndex index: Int) -> String {
@@ -76,6 +97,24 @@ class UserViewModel {
             return UserViewModel.EmployeeOptions.dataSource[index] as AnyObject
         case .employer:
             return UserViewModel.EmployerOptions.dataSource[index] as AnyObject
+        }
+    }
+    
+    func getInitialValue() {
+        let user = UserInfo.getUser()
+        switch self.loggedInUserType! {
+        case .employee:
+            self.userName = user?.employee?.employeeName
+            self.userRole = "Software Developer"
+            self.userType = "Employee"
+            self.userEmial = user?.employee?.employeeEmail
+            self.gender = Gender(rawValue: user?.employee?.employeeGender ?? "")
+        case .employer:
+            self.userName = user?.employer?.employerName
+            self.userRole = "Project Manager"
+            self.userType = "Employer"
+            self.userEmial = user?.employer?.employerEmial
+            self.gender = Gender(rawValue: user?.employer?.employerGender ?? "")
         }
     }
 }

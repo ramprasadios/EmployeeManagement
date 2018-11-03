@@ -52,6 +52,7 @@ extension UserDashboardViewController {
         headerView.userTypeLabel.text = self.userViewModel.userType
         
         self.loginUserTypeLabel.text = "Logged in as " + self.userViewModel.userType
+        self.title = self.userViewModel.userType
     }
 }
 
@@ -83,18 +84,96 @@ extension UserDashboardViewController: UITableViewDelegate {
             guard let selectedType = self.userViewModel.selectedOption(atIndex: indexPath.row) as? UserViewModel.EmployeeOptions else { return }
             switch selectedType {
             case .logout:
-                AppManager.logoutUser()
-            default:
-                break
+                self.logoutConfirmation()
+            
+            case .project:
+                let projVc = StoryboardManager.default.initViewController(storyBoardType: .Home, viewController: .projManagementVc) as ProjectManagementViewController
+                self.navigationController?.pushViewController(projVc, animated: true)
+                
+            case .deadline:
+                self.showAlert(with: "Project Completion", and: "My Project deadline is 2 Months")
+                
+            case .employer:
+                guard let employer = UserInfo.getUser()?.employee?.employer?.employerName else {
+                    showAlert(with: "Error", and: "No Employer Assigned")
+                    return }
+                self.showAlert(with: "Employer Detail", and: "My Employer Name is \(String(describing: employer))")
+                
+            case .salary:
+                self.showAlert(with: "Salary Detail", and: "My Salary is 40,000 ₹")
+                
+            case .team:
+                let projectTeamVc = StoryboardManager.default.initViewController(storyBoardType: .Home, viewController: .projectTeam) as ProjectTeamViewController
+                self.navigationController?.pushViewController(projectTeamVc, animated: true)
+                
             }
         case .employer:
             guard let selectedType = self.userViewModel.selectedOption(atIndex: indexPath.row) as? UserViewModel.EmployerOptions else { return }
             switch selectedType {
             case .logout:
-                AppManager.logoutUser()
-            default:
-                break
+                self.logoutConfirmation()
+                
+            case .addProject:
+                self.getProjectData()
+                
+            case .assign:
+                let projVc = StoryboardManager.default.initViewController(storyBoardType: .Home, viewController: .projManagementVc) as ProjectManagementViewController
+                projVc.employerOptions = selectedType
+                self.navigationController?.pushViewController(projVc, animated: true)
+                
+            case .edit:
+                let projVc = StoryboardManager.default.initViewController(storyBoardType: .Home, viewController: .projManagementVc) as ProjectManagementViewController
+                projVc.employerOptions = selectedType
+                self.navigationController?.pushViewController(projVc, animated: true)
+                
+            case .viewEmployee:
+                let empVc = StoryboardManager.default.initViewController(storyBoardType: .Home, viewController: .employeeList) as EmployeeListViewController
+                self.navigationController?.pushViewController(empVc, animated: true)
             }
         }
+    }
+}
+
+extension UserDashboardViewController {
+    
+    func getProjectData() {
+        let alertController = UIAlertController(title: "Add new project...!", message: "Please enter the project name and duration in the text field below", preferredStyle: .alert)
+        
+        alertController.addTextField { (projectNameTextField) in
+            projectNameTextField.placeholder = "Project Name"
+        }
+        
+        alertController.addTextField { (projectDurationTextField) in
+            projectDurationTextField.placeholder = "Project Duration"
+        }
+        
+        let addAction = UIAlertAction(title: "Add", style: .default) { (projAddAction) in
+            
+            guard let pnTextField = alertController.textFields?.first,
+            let durationTextField = alertController.textFields?.last,
+            let projName = pnTextField.text,
+                let duration = durationTextField.text, projName != "", duration != "" else { return }
+            self.userViewModel.addNewproject(withName: projName, andDeadline: duration)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func logoutConfirmation() {
+        let alertController = UIAlertController(title: "Alert...!", message: "Are your sure your want to Logout..?", preferredStyle: .alert)
+        
+        let addAction = UIAlertAction(title: "Logout", style: .destructive) { (projAddAction) in
+            AppManager.logoutUser()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }

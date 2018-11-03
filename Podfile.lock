@@ -1,16 +1,20 @@
 PODS:
+  - DropDown (2.3.4)
   - IQKeyboardManagerSwift (6.2.0)
 
 DEPENDENCIES:
+  - DropDown (= 2.3.4)
   - IQKeyboardManagerSwift (>= 6.0.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - DropDown
     - IQKeyboardManagerSwift
 
 SPEC CHECKSUMS:
+  DropDown: f225ff0fd09dde064d17aa03db7e4d4e4ff40b6b
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
 
-PODFILE CHECKSUM: fb6faaa74b3291c58b71d1bf79c2f5ea504a8564
+PODFILE CHECKSUM: 8324254f913c51d77cd980cb95a298a406eb8a4c
 
 COCOAPODS: 1.5.3

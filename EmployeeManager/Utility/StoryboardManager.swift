@@ -24,6 +24,10 @@ class StoryboardManager {
         case login = "LoginViewController"
         case register = "RegisterViewController"
         case userHome = "UserDashboardViewController"
+        case projManagementVc = "ProjectManagementViewController"
+        case employeeList = "EmployeeListViewController"
+        case profile = "ProfileViewController"
+        case projectTeam = "ProjectTeamViewController"
         
         
         //Nav Controllers :

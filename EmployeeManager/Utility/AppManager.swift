@@ -17,6 +17,13 @@ class AppManager: NSObject {
         return user.loginStatus
     }
     
+    class var loggedInUserType: LoginViewModel.LoginType? {
+        guard let user = UserInfo.getUser() else { return nil }
+        guard let userType = user.loginType else { return nil }
+        guard let type = LoginViewModel.LoginType(rawValue: userType) else { return nil }
+        return type
+    }
+    
     class func initialSetup() {
         printCoreDataURL()
         checkLoginNavigation()

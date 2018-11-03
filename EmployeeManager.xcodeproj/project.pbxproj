@@ -19,6 +19,15 @@
 		211DC2232185C72800B1F734 /* OptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211DC2212185C72800B1F734 /* OptionsTableViewCell.swift */; };
 		211DC2242185C72800B1F734 /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211DC2222185C72800B1F734 /* OptionsTableViewCell.xib */; };
 		211DC2262185C7E900B1F734 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211DC2252185C7E900B1F734 /* UITableView+Extension.swift */; };
+		2128323E218D6F4B007965C7 /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2128323D218D6F4B007965C7 /* EmployeeListViewController.swift */; };
+		21283242218D7070007965C7 /* EmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21283241218D7070007965C7 /* EmployeeViewModel.swift */; };
+		21283244218D750A007965C7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21283243218D750A007965C7 /* ProfileViewController.swift */; };
+		21283246218D7575007965C7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21283245218D7575007965C7 /* ProfileViewModel.swift */; };
+		21283248218D84FE007965C7 /* ProjectTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21283247218D84FE007965C7 /* ProjectTeamViewController.swift */; };
+		2128324A218D855B007965C7 /* ProjectTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21283249218D855B007965C7 /* ProjectTeamViewModel.swift */; };
+		2128324D218D94C2007965C7 /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2128324B218D94C2007965C7 /* EmployeeTableViewCell.swift */; };
+		2128324E218D94C2007965C7 /* EmployeeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2128324C218D94C2007965C7 /* EmployeeTableViewCell.xib */; };
+		212B8976218A2B8A006DF49A /* ProjectManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212B8975218A2B8A006DF49A /* ProjectManagementViewController.swift */; };
 		212C86B92184498200450057 /* NSManagedObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212C86B82184498200450057 /* NSManagedObject+Extension.swift */; };
 		212C86BB21845DB700450057 /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212C86BA21845DB700450057 /* AppManager.swift */; };
 		213F3D7D21883FED00044E4D /* ProjectInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213F3D7C21883FED00044E4D /* ProjectInfo.swift */; };
@@ -63,6 +72,15 @@
 		211DC2212185C72800B1F734 /* OptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewCell.swift; sourceTree = "<group>"; };
 		211DC2222185C72800B1F734 /* OptionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsTableViewCell.xib; sourceTree = "<group>"; };
 		211DC2252185C7E900B1F734 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		2128323D218D6F4B007965C7 /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
+		21283241218D7070007965C7 /* EmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewModel.swift; sourceTree = "<group>"; };
+		21283243218D750A007965C7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		21283245218D7575007965C7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		21283247218D84FE007965C7 /* ProjectTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTeamViewController.swift; sourceTree = "<group>"; };
+		21283249218D855B007965C7 /* ProjectTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTeamViewModel.swift; sourceTree = "<group>"; };
+		2128324B218D94C2007965C7 /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
+		2128324C218D94C2007965C7 /* EmployeeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeTableViewCell.xib; sourceTree = "<group>"; };
+		212B8975218A2B8A006DF49A /* ProjectManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectManagementViewController.swift; sourceTree = "<group>"; };
 		212C86B82184498200450057 /* NSManagedObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Extension.swift"; sourceTree = "<group>"; };
 		212C86BA21845DB700450057 /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		213F3D7C21883FED00044E4D /* ProjectInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfo.swift; sourceTree = "<group>"; };
@@ -143,6 +161,8 @@
 				211DC21A2185BEDC00B1F734 /* ProfileHeaderView.xib */,
 				211DC2212185C72800B1F734 /* OptionsTableViewCell.swift */,
 				211DC2222185C72800B1F734 /* OptionsTableViewCell.xib */,
+				2128324B218D94C2007965C7 /* EmployeeTableViewCell.swift */,
+				2128324C218D94C2007965C7 /* EmployeeTableViewCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -226,6 +246,10 @@
 				21EF44472180A35B0085F2B8 /* LoginViewController.swift */,
 				21703ECE2181BEDD00286C37 /* RegisterViewController.swift */,
 				21CE27D0218202C0008E7656 /* OptionsListViewController.swift */,
+				212B8975218A2B8A006DF49A /* ProjectManagementViewController.swift */,
+				2128323D218D6F4B007965C7 /* EmployeeListViewController.swift */,
+				21283243218D750A007965C7 /* ProfileViewController.swift */,
+				21283247218D84FE007965C7 /* ProjectTeamViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -238,6 +262,9 @@
 				21CE27D221820C96008E7656 /* OptionsListViewModel.swift */,
 				211DC21F2185C3E300B1F734 /* UserViewModel.swift */,
 				213F3D7C21883FED00044E4D /* ProjectInfo.swift */,
+				21283241218D7070007965C7 /* EmployeeViewModel.swift */,
+				21283245218D7575007965C7 /* ProfileViewModel.swift */,
+				21283249218D855B007965C7 /* ProjectTeamViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -345,6 +372,7 @@
 				21EF443F2180993A0085F2B8 /* LaunchScreen.storyboard in Resources */,
 				211DC2242185C72800B1F734 /* OptionsTableViewCell.xib in Resources */,
 				21EF443C2180993A0085F2B8 /* Assets.xcassets in Resources */,
+				2128324E218D94C2007965C7 /* EmployeeTableViewCell.xib in Resources */,
 				211163452184E739000FF1E4 /* Home.storyboard in Resources */,
 				211DC21B2185BEDC00B1F734 /* ProfileHeaderView.xib in Resources */,
 			);
@@ -378,10 +406,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-EmployeeManager/Pods-EmployeeManager-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,26 +439,34 @@
 				213F3D94218888BC00044E4D /* UserInfo+CoreDataProperties.swift in Sources */,
 				212C86B92184498200450057 /* NSManagedObject+Extension.swift in Sources */,
 				211DC21E2185C10200B1F734 /* ProfileHeaderView.swift in Sources */,
+				21283246218D7575007965C7 /* ProfileViewModel.swift in Sources */,
+				21283242218D7070007965C7 /* EmployeeViewModel.swift in Sources */,
 				217EFB6E2183509300632E04 /* UIViewController+Extension.swift in Sources */,
 				21DFEB4F2182F386006F9EE7 /* Employee+CoreDataClass.swift in Sources */,
+				212B8976218A2B8A006DF49A /* ProjectManagementViewController.swift in Sources */,
 				213F3D93218888BC00044E4D /* UserInfo+CoreDataClass.swift in Sources */,
 				21DFEB4D2182F386006F9EE7 /* Employer+CoreDataClass.swift in Sources */,
 				213F3D7D21883FED00044E4D /* ProjectInfo.swift in Sources */,
 				21EF444B2180A3DB0085F2B8 /* LoginViewModel.swift in Sources */,
+				2128323E218D6F4B007965C7 /* EmployeeListViewController.swift in Sources */,
 				211163402184E3AF000FF1E4 /* StoryboardManager.swift in Sources */,
 				21EF44482180A35B0085F2B8 /* LoginViewController.swift in Sources */,
 				21703ECF2181BEDD00286C37 /* RegisterViewController.swift in Sources */,
 				213F3D8321887DA500044E4D /* UserDashboardViewController.swift in Sources */,
 				213F3D7F2188465500044E4D /* EmployerNavigationController.swift in Sources */,
 				211DC2232185C72800B1F734 /* OptionsTableViewCell.swift in Sources */,
+				2128324D218D94C2007965C7 /* EmployeeTableViewCell.swift in Sources */,
 				21DFEB522182F386006F9EE7 /* Project+CoreDataProperties.swift in Sources */,
 				21EF4432218099380085F2B8 /* AppDelegate.swift in Sources */,
 				211DC2262185C7E900B1F734 /* UITableView+Extension.swift in Sources */,
+				2128324A218D855B007965C7 /* ProjectTeamViewModel.swift in Sources */,
 				21EF444E2180A7370085F2B8 /* String+Extension.swift in Sources */,
 				211DC2202185C3E300B1F734 /* UserViewModel.swift in Sources */,
 				211DC2132185B59300B1F734 /* LoginNavigationController.swift in Sources */,
 				21703ECD2181AEB700286C37 /* EM_Protocols.swift in Sources */,
+				21283244218D750A007965C7 /* ProfileViewController.swift in Sources */,
 				211DC2112185B56400B1F734 /* HomeNavigationController.swift in Sources */,
+				21283248218D84FE007965C7 /* ProjectTeamViewController.swift in Sources */,
 				21EF443A218099380085F2B8 /* EmployeeManager.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,7 +608,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EmployeeManager/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.helloWorld.ios.EmployeeManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -585,7 +626,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EmployeeManager/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.helloWorld.ios.EmployeeManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;

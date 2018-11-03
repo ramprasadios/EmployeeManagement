@@ -27,14 +27,13 @@ class UserViewModel {
     }
     
     enum EmployerOptions: String {
-        case empAdd = "Add Employee"
+        case addProject = "Add New Project"
         case edit = "Edit Employee"
-        case delete = "Delete Employee"
         case viewEmployee = "View Employee Profile"
         case assign = "Assign Teams"
         case logout = "Logout"
         
-        static var dataSource: [EmployerOptions] = [.empAdd, .edit, .delete, .viewEmployee, .assign, .logout]
+        static var dataSource: [EmployerOptions] = [.addProject, .edit, .viewEmployee, .assign, .logout]
         
         static func count() -> Int {
             return self.dataSource.count
@@ -116,5 +115,13 @@ class UserViewModel {
             self.userEmial = user?.employer?.employerEmial
             self.gender = Gender(rawValue: user?.employer?.employerGender ?? "")
         }
+    }
+    
+    func addNewproject(withName name: String, andDeadline deadline: String) {
+        let project = Project.initEntity() as Project
+        project.projectName = name
+        project.projetDate = deadline
+        
+        CoreDataManager.default.saveContext(with: project.managedObjectContext)
     }
 }

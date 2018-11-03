@@ -59,3 +59,33 @@ extension EnumIteratable {
         }
     }
 }
+
+protocol AlertDisplayable {
+    
+    func showAlert(title: String, message: String?, okActionTitle: String,handler:((UIAlertAction) -> Void)?)
+    func showConfirmationAlert(title: String, message: String, okActionTitle: String,cancelTitle: String,confirmationHandler:@escaping ((_ clickedAlertAction: UIAlertAction, _ isDestructiveAction: Bool ) -> Void))
+}
+
+extension AlertDisplayable where Self: UIViewController  {
+    
+    func showAlert(title: String, message: String?, okActionTitle: String,handler:((UIAlertAction) -> Void)?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: okActionTitle, style: .default, handler: handler)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func showConfirmationAlert(title: String, message: String, okActionTitle: String,cancelTitle: String,confirmationHandler:@escaping ((_ clickedAlertAction: UIAlertAction, _ isDestructiveAction: Bool ) -> Void)) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: okActionTitle, style: .destructive, handler: { action in
+            confirmationHandler(action, true)
+        })
+        let cancelAction = UIAlertAction(title: cancelTitle, style: .default, handler: { action in
+            confirmationHandler(action, false)
+        })
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+}

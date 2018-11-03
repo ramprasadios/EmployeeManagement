@@ -27,6 +27,8 @@ enum Projects: String {
     case java = "Java Backend Development"
     case nodeJs = "Node JS Backend Development"
     
+    static let caseValues: [Projects] = [.iot, .iOS, .android, .web, .embedded, .java, .nodeJs]
+    
     //Returning the project duration in terms of months.
     var projectDeadlines: Int {
         return self.rawValue.count

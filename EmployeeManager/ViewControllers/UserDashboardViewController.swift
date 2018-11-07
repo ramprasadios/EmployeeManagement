@@ -66,6 +66,14 @@ extension UserDashboardViewController: UITableViewDataSource {
         let cell = tableView.dequeCell(forIndexPath: indexPath) as OptionsTableViewCell
         cell.optionTypeLabel.text = self.userViewModel.optionValue(atIndex: indexPath.row)
         cell.optionDescriptionLabel.text = "Click here for more option on \(self.userViewModel.optionValue(atIndex: indexPath.row))"
+        if let type = self.userViewModel.loggedInUserType {
+            switch type {
+            case .employee:
+                cell.optionCellImageView.image = UserViewModel.EmployeeOptions.dataSource[indexPath.row].image
+            case .employer:
+                cell.optionCellImageView.image = UserViewModel.EmployerOptions.dataSource[indexPath.row].image
+            }
+        }
         cell.selectionStyle = .none
         return cell
     }

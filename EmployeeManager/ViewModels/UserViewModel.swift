@@ -24,6 +24,23 @@ class UserViewModel {
         static func count() -> Int {
             return self.dataSource.count
         }
+        
+        var image: UIImage? {
+            switch self {
+            case .deadline:
+                return UIImage(named: "my_project_deadline")
+            case .employer:
+                return UIImage(named: "my_employer")
+            case .logout:
+                return UIImage(named: "logout")
+            case .project:
+                return UIImage(named: "project_allotted")
+            case .salary:
+                return UIImage(named: "my_salary")
+            case .team:
+                return UIImage(named: "my_team")
+            }
+        }
     }
     
     enum EmployerOptions: String {
@@ -37,6 +54,21 @@ class UserViewModel {
         
         static func count() -> Int {
             return self.dataSource.count
+        }
+        
+        var image: UIImage? {
+            switch self {
+            case .addProject:
+                return UIImage(named: "new_project_add")
+            case .assign:
+                return UIImage(named: "assign_team")
+            case .edit:
+                return UIImage(named: "edit_employee")
+            case .logout:
+                return UIImage(named: "logout")
+            case .viewEmployee:
+                return UIImage(named: "view_profile")
+            }
         }
     }
     

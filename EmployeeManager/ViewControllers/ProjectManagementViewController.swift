@@ -88,7 +88,7 @@ extension ProjectManagementViewController: UITableViewDelegate {
             
             switch editingStyle {
             case .delete:
-                self.projectViewModel.handleEmployee(options: .edit, ofEmployee: employee!)
+                self.projectViewModel.handleEmployee(options: .edit, ofEmployee: employee!, toProject: currentProject)
             case .insert:
                 self.projectViewModel.handleEmployee(options: .assign, ofEmployee: employee!, toProject: currentProject)
             default:

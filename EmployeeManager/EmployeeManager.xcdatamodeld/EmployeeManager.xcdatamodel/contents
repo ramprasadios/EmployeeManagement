@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18A391" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Employee" representedClassName="Employee" syncable="YES">
         <attribute name="employeeEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="employeeGender" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,7 +9,7 @@
         <attribute name="employeeSalary" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="employeeUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserInfo" inverseName="employee" inverseEntity="UserInfo" syncable="YES"/>
         <relationship name="employer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employer" inverseName="employee" inverseEntity="Employer" syncable="YES"/>
-        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="employee" inverseEntity="Project" syncable="YES"/>
+        <relationship name="project" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Project" inverseName="employee" inverseEntity="Project" syncable="YES"/>
     </entity>
     <entity name="Employer" representedClassName="Employer" syncable="YES">
         <attribute name="employerEmial" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,7 +26,7 @@
         <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="projetDate" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="employee" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employee" inverseName="project" inverseEntity="Employee" syncable="YES"/>
-        <relationship name="employer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employer" inverseName="project" inverseEntity="Employer" syncable="YES"/>
+        <relationship name="employer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Employer" inverseName="project" inverseEntity="Employer" syncable="YES"/>
     </entity>
     <entity name="UserInfo" representedClassName="UserInfo" syncable="YES">
         <attribute name="loginStatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>

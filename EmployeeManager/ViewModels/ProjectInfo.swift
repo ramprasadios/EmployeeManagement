@@ -29,7 +29,7 @@ class ProjectInfo {
         guard let employees = Employee.getAllEmployees() else { return [] }
         var filteredEmployees: [Employee] = []
         if areIn {
-            filteredEmployees = employees.filter({ $0.project == project })
+            filteredEmployees = project.employee?.allObjects as! [Employee]
         } else {
             filteredEmployees = employees.filter({ $0.project != project })
         }
@@ -39,9 +39,12 @@ class ProjectInfo {
     func handleEmployee(options type: UserViewModel.EmployerOptions, ofEmployee employee: Employee, toProject project: Project? = nil) {
         switch type {
         case .edit:
-            employee.project = nil
+            let projects = employee.mutableSetValue(forKey: "project")
+            projects.remove(project as Any)
+            employee.project = projects
         case .assign:
-            employee.project = project
+            let projects = employee.mutableSetValue(forKey: "project")
+            projects.add(project as Any)
             employee.employer = UserInfo.getUser()?.employer
         default:
             break

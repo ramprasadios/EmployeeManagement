@@ -14,6 +14,8 @@ class UserDashboardViewController: UIViewController {
     @IBOutlet weak var loginUserTypeLabel: UILabel!
         
     var userViewModel = UserViewModel()
+    var imageHandler: ((_ image: UIImage) -> Void)?
+    var imagePickerContoller: UIImagePickerController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,10 @@ extension UserDashboardViewController {
         headerView.userRoleLabel.text = self.userViewModel.userRole
         headerView.userEmailLabel.text = self.userViewModel.userEmial
         headerView.userTypeLabel.text = self.userViewModel.userType
+
+        headerView.userImageView.image = self.userViewModel.userImage
+        
+        headerView.delegate = self
         
         self.loginUserTypeLabel.text = "Logged in as " + self.userViewModel.userType
         self.title = self.userViewModel.userType
@@ -183,5 +189,30 @@ extension UserDashboardViewController {
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension UserDashboardViewController: ImageChnageHandlerProtocol {
+   
+    func editImageTapped() {
+        self.imagePickerContoller = UIImagePickerController()
+        self.imagePickerContoller?.sourceType = .photoLibrary
+        self.imagePickerContoller?.delegate = self
+        
+        print("Change image initilized")
+        self.present(imagePickerContoller!, animated: true, completion: nil)
+    }
+}
+
+extension UserDashboardViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            guard let headerView = self.employeeTableView.tableHeaderView as? ProfileHeaderView else { return }
+            headerView.userImageView.image = image
+            self.imagePickerContoller?.delegate = nil
+            self.userViewModel.setUserImage(with: image)
+            picker.dismiss(animated: true, completion: nil)
+        }
     }
 }

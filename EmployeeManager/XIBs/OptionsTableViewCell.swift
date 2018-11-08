@@ -14,11 +14,13 @@ class OptionsTableViewCell: UITableViewCell {
     @IBOutlet weak var optionTypeLabel: UILabel!
     @IBOutlet weak var optionDescriptionLabel: UILabel!
     
+   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-    }    
+    }
 }

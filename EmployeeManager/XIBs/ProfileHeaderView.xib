@@ -18,7 +18,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0xJ-qL-XuX">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gSc-Qi-0CE">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-icon" translatesAutoresizingMaskIntoConstraints="NO" id="gSc-Qi-0CE">
                             <rect key="frame" x="8" y="24.5" width="100" height="100"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
@@ -87,6 +87,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="userEmailLabel" destination="DJ2-hu-bbu" id="vLm-YE-dc9"/>
+                <outlet property="userImageView" destination="gSc-Qi-0CE" id="Bo7-SP-q71"/>
                 <outlet property="userNameLabel" destination="vTa-op-KZZ" id="dj0-NI-HTp"/>
                 <outlet property="userRoleLabel" destination="1ia-3Q-7zh" id="n0d-nM-m6w"/>
                 <outlet property="userTypeLabel" destination="M73-BF-9jx" id="q92-Ds-PkJ"/>

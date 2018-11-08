@@ -77,6 +77,8 @@ class UserViewModel {
     var userEmial: String!
     var userType: String!
     var gender: Gender!
+    var userImage: UIImage?
+    var user: UserInfo?
     
     var fullName: String {
         switch self.gender {
@@ -132,7 +134,7 @@ class UserViewModel {
     }
     
     func getInitialValue() {
-        let user = UserInfo.getUser()
+        self.user = UserInfo.getUser()
         switch self.loggedInUserType! {
         case .employee:
             self.userName = user?.employee?.employeeName
@@ -140,12 +142,18 @@ class UserViewModel {
             self.userType = "Employee"
             self.userEmial = user?.employee?.employeeEmail
             self.gender = Gender(rawValue: user?.employee?.employeeGender ?? "")
+            guard let userImageData = user?.employee?.employeeImage else { return }
+            guard let userImage = UIImage(data: userImageData as Data) else { return }
+            self.userImage = userImage
         case .employer:
             self.userName = user?.employer?.employerName
             self.userRole = "Project Manager"
             self.userType = "Employer"
             self.userEmial = user?.employer?.employerEmial
             self.gender = Gender(rawValue: user?.employer?.employerGender ?? "")
+            guard let userImageData = user?.employer?.employerImage else { return }
+            guard let userImage = UIImage(data: userImageData as Data) else { return }
+            self.userImage = userImage
         }
     }
     
@@ -155,5 +163,17 @@ class UserViewModel {
         project.projetDate = deadline
         
         CoreDataManager.default.saveContext(with: project.managedObjectContext)
+    }
+    
+    func setUserImage(with image: UIImage) {
+        guard let imageData = image.jpegData(compressionQuality: 1.0) else { return }
+        guard let type = self.loggedInUserType else { return }
+        switch type {
+        case .employee:
+            self.user?.employee?.employeeImage = imageData as NSData
+        case .employer:
+            self.user?.employer?.employerImage = imageData as NSData
+        }
+        CoreDataManager.default.saveContext()
     }
 }

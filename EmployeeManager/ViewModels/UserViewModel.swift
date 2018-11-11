@@ -176,4 +176,15 @@ class UserViewModel {
         }
         CoreDataManager.default.saveContext()
     }
+    
+    func removeImage() {
+        guard let type = self.loggedInUserType else { return }
+        switch type {
+        case .employee:
+            self.user?.employee?.employeeImage = nil
+        case .employer:
+            self.user?.employer?.employerImage = nil
+        }
+        CoreDataManager.default.saveContext()
+    }
 }

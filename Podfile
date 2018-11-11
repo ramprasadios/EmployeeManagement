@@ -8,5 +8,6 @@ target 'EmployeeManager' do
   # Pods for EmployeeManager
   pod 'IQKeyboardManagerSwift', '>= 6.0.4'
   pod 'DropDown', '2.3.4'
+  pod 'Toast-Swift', '~> 4.0.0'
 
 end

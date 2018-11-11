@@ -8,6 +8,7 @@
 
 import UIKit
 import DropDown
+import Toast_Swift
 
 class ProjectManagementViewController: UIViewController {
     
@@ -89,8 +90,10 @@ extension ProjectManagementViewController: UITableViewDelegate {
             switch editingStyle {
             case .delete:
                 self.projectViewModel.handleEmployee(options: .edit, ofEmployee: employee!, toProject: currentProject)
+                self.view.makeToast("Employee Removed from the Project Successfully")
             case .insert:
                 self.projectViewModel.handleEmployee(options: .assign, ofEmployee: employee!, toProject: currentProject)
+                self.view.makeToast("Employee Added to the Project Successfully")
             default:
                 break
             }

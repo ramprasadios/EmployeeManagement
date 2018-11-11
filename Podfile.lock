@@ -1,20 +1,24 @@
 PODS:
   - DropDown (2.3.4)
   - IQKeyboardManagerSwift (6.2.0)
+  - Toast-Swift (4.0.0)
 
 DEPENDENCIES:
   - DropDown (= 2.3.4)
   - IQKeyboardManagerSwift (>= 6.0.4)
+  - Toast-Swift (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DropDown
     - IQKeyboardManagerSwift
+    - Toast-Swift
 
 SPEC CHECKSUMS:
   DropDown: f225ff0fd09dde064d17aa03db7e4d4e4ff40b6b
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
+  Toast-Swift: 594b5c5e5129f15438e410207e43287f027b3c00
 
-PODFILE CHECKSUM: 8324254f913c51d77cd980cb95a298a406eb8a4c
+PODFILE CHECKSUM: 1588cd8080a96ab764402049f25607d15e3b1a08
 
 COCOAPODS: 1.5.3

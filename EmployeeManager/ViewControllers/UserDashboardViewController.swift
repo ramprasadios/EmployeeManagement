@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class UserDashboardViewController: UIViewController {
 
@@ -16,6 +17,11 @@ class UserDashboardViewController: UIViewController {
     var userViewModel = UserViewModel()
     var imageHandler: ((_ image: UIImage) -> Void)?
     var imagePickerContoller: UIImagePickerController?
+    
+    var tableHeaderView: ProfileHeaderView? {
+        guard let headerView = self.employeeTableView.tableHeaderView as? ProfileHeaderView else { return nil }
+        return headerView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,13 +58,16 @@ extension UserDashboardViewController {
         headerView.userRoleLabel.text = self.userViewModel.userRole
         headerView.userEmailLabel.text = self.userViewModel.userEmial
         headerView.userTypeLabel.text = self.userViewModel.userType
-
-        headerView.userImageView.image = self.userViewModel.userImage
         
         headerView.delegate = self
         
         self.loginUserTypeLabel.text = "Logged in as " + self.userViewModel.userType
         self.title = self.userViewModel.userType
+        
+        guard let profileImage = self.userViewModel.userImage else {
+            headerView.userImageView.image = UIImage(named: "user-icon")
+            return }
+        headerView.userImageView.image = profileImage
     }
 }
 
@@ -195,12 +204,27 @@ extension UserDashboardViewController {
 extension UserDashboardViewController: ImageChnageHandlerProtocol {
    
     func editImageTapped() {
-        self.imagePickerContoller = UIImagePickerController()
-        self.imagePickerContoller?.sourceType = .photoLibrary
-        self.imagePickerContoller?.delegate = self
         
-        print("Change image initilized")
-        self.present(imagePickerContoller!, animated: true, completion: nil)
+        let actionSheet = UIAlertController(title: "Change Image", message: "Plese select the below options", preferredStyle: .actionSheet)
+        let removeAction = UIAlertAction(title: "Remove Image", style: .destructive) { (removeImage) in
+            self.userViewModel.removeImage()
+            self.tableHeaderView?.userImageView.image = UIImage(named: "user-icon")
+            self.view.makeToast("Image Removed Successfully")
+        }
+        let changeAction = UIAlertAction(title: "Change Image", style: .default) { (changeImage) in
+            self.imagePickerContoller = UIImagePickerController()
+            self.imagePickerContoller?.sourceType = .photoLibrary
+            self.imagePickerContoller?.delegate = self
+            
+            print("Change image initilized")
+            self.present(self.imagePickerContoller!, animated: true, completion: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        actionSheet.addAction(removeAction)
+        actionSheet.addAction(changeAction)
+        actionSheet.addAction(cancelAction)
+        
+        self.present(actionSheet, animated: true, completion: nil)
     }
 }
 
@@ -208,10 +232,11 @@ extension UserDashboardViewController: UIImagePickerControllerDelegate, UINaviga
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            guard let headerView = self.employeeTableView.tableHeaderView as? ProfileHeaderView else { return }
-            headerView.userImageView.image = image
+            
+            self.tableHeaderView?.userImageView.image = image
             self.imagePickerContoller?.delegate = nil
             self.userViewModel.setUserImage(with: image)
+            self.view.makeToast("Image Changed Successfully")
             picker.dismiss(animated: true, completion: nil)
         }
     }
